@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doc: MyString
+  content: MyString
+  register_link: MyString
+  apr: MyString
+  time_horizon: 1.5
+  per_10000: 9.99
+  type: 
+  channel: one
+  platform: one
+
+two:
+  doc: MyString
+  content: MyString
+  register_link: MyString
+  apr: MyString
+  time_horizon: 1.5
+  per_10000: 9.99
+  type: 
+  channel: two
+  platform: two

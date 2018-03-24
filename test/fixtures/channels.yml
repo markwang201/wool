@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qq_group: MyString
+  qq_group_name: MyString
+  group_master_qq: MyString
+  phone_number: MyString
+  master_name: MyString
+
+two:
+  qq_group: MyString
+  qq_group_name: MyString
+  group_master_qq: MyString
+  phone_number: MyString
+  master_name: MyString

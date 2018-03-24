@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  password: MyString
+  qq_number: MyString
+  qq_name: MyString
+  alipay: MyString
+  alipay_name: MyString
+
+two:
+  name: MyString
+  password: MyString
+  qq_number: MyString
+  qq_name: MyString
+  alipay: MyString
+  alipay_name: MyString
