@@ -1,23 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  doc: MyString
-  content: MyString
-  register_link: MyString
-  apr: MyString
-  time_horizon: 1.5
-  per_10000: 9.99
-  type: 
-  channel: one
-  platform: one
-
-two:
-  doc: MyString
-  content: MyString
-  register_link: MyString
-  apr: MyString
-  time_horizon: 1.5
-  per_10000: 9.99
-  type: 
-  channel: two
-  platform: two
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

@@ -1,0 +1,18 @@
+<li class="project__itembox">
+  <a target="_blank" href="<%= bill_url(bill)%>">
+    <h2 class="project__name">
+      <%= bill.platform.name %>
+    </h2>
+    <div class="project__detail">
+      <%= image_tag(bill.platform.logo) %>
+      <p class="project__profit project__info">预计最高年化<br><span data-intrest="19%" class="intrest project__profit-num"><%= bill.apr %></span>
+      </p>
+      <p class="project__price project__info">返现价格<br><span class="price project__price-num"><% bill.per_10000 %></span>
+      </p>
+      <p class="project__money project__info">投资区间<br><span class="investrange">1万起</span></p>
+      <p class="project__term project__info">标期<br><span class="investrange"><%= bill.time_horizon %></span></p>
+      <div class="project-btn-box"><span class="btn m-green m-project state10 isbook_false">立即赚钱</span></div>
+    </div>
+    <span class="person-total">已有426人参与投资</span>
+  </a>
+</li>
