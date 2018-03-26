@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  belongs_to :platform
   validates :phone_num, presence: { message: "手机号码不能为空" }
   # validates :investor_username
   validates :time_horizon, presence: { message: "投资标期不能为空" }

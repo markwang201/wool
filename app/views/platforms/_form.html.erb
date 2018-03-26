@@ -1,0 +1,12 @@
+<%= simple_form_for(@platform, :html => { :multipart => true }) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :name , label: '平台名称'%>
+    <%= f.input :logo, as: :file, label: '平台logo' %>
+    <%= f.input :introduce, label: '平台介绍' %>
+    <%= f.input :platform_type, label: '平台类型(国资 风资 民营)' %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

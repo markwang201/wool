@@ -1,0 +1,7 @@
+<%= simple_form_for @bill do |f| %>
+    <%= f.input :register_link, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
+    <%= f.input :content, hint: 'No special characters.' %>
+    <%= f.input :doc, inline_label: 'Yes, remember me' %>
+    <%= f.button :submit %>
+<% end %>
+
