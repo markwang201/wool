@@ -26,7 +26,9 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    binding.pry
     @order = Order.new(order_params)
+    binding.pry
 
     respond_to do |format|
       if @order.save
@@ -71,7 +73,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.fetch(:order, {}).permit(:phone_num, :investor_username, :time_horizon, :amount, :alipay, :alipay_name,
+      params.fetch(:order, {}).permit(:platform_id, :phone_num, :investor_username, :time_horizon, :amount, :alipay, :alipay_name,
       :qq_number, :qq_name, :screenshots, :password, :note
       )
     end
