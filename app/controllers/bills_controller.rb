@@ -24,8 +24,9 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
+    binding.pry
     @bill = Bill.new(bill_params)
-
+    binding.pry
     respond_to do |format|
       if @bill.save
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
@@ -69,6 +70,18 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.fetch(:bill, {})
+      params.fetch(:bill, {}).permit(:bill_name,
+                                     :doc,
+                                     :content,
+                                     :register_link,
+                                     :apr,
+                                     :time_horizon,
+                                     :per_10000,
+                                     :bill_type,
+                                     :states,
+                                     :channel_id,
+                                     :platform_id,
+                                     :invest_count,
+                                     :invest_range)
     end
 end

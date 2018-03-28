@@ -3,7 +3,7 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      钱包金融三月标 <a href="#" class="btn btn-primary">交单</a>
+      <%= @bill.bill_name %>
     </div>
     <div class="card-body">
       <div id="accordion">
@@ -50,7 +50,7 @@
               平台注册红包、充值红包以官网为准，攻略仅做参考
 
               注册红包:
-
+              <%= @bill.content %>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <%= @bill.platform.introduce %>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
       </div>
     </div>
     <div class="card-footer text-muted">
-      <a href="#" class="btn btn-primary">交单</a>
+      <a href="<%= "/orders/new?bill_id=#{@bill.id}"%>" class="btn btn-primary">交单</a>
     </div>
   </div>
 </div>

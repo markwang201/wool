@@ -1,22 +1,3 @@
-<!--<li class="project__itembox">-->
-  <!--<a target="_blank" href="<%= bill_url(bill)%>">-->
-    <!--<h2 class="project__name">-->
-      <!--<%= bill.platform.name %>-->
-    <!--</h2>-->
-    <!--<div class="project__detail">-->
-      <!--<%= image_tag(bill.platform.logo) %>-->
-      <!--<p class="project__profit project__info">预计最高年化<br><span data-intrest="19%" class="intrest project__profit-num"><%= bill.apr %></span>-->
-      <!--</p>-->
-      <!--<p class="project__price project__info">返现价格<br><span class="price project__price-num"><% bill.per_10000 %></span>-->
-      <!--</p>-->
-      <!--<p class="project__money project__info">投资区间<br><span class="investrange">1万起</span></p>-->
-      <!--<p class="project__term project__info">标期<br><span class="investrange"><%= bill.time_horizon %></span></p>-->
-      <!--<div class="project-btn-box"><span class="btn m-green m-project state10 isbook_false">立即赚钱</span></div>-->
-    <!--</div>-->
-    <!--<span class="person-total">已有426人参与投资</span>-->
-  <!--</a>-->
-<!--</li>-->
-
 <div class="card">
   <div class="card-body">
     <!--<h5 class="card-title">Special title treatment</h5>-->
@@ -26,7 +7,7 @@
       <div class="col-2">  <p class="card-text">预计最高年化</p> <p><%= bill.apr %></p></div>
       <div class="col-2"> <p class="card-text">投资期限</p> <p><%= bill.time_horizon %></p></div>
       <div class="col-2"> <p class="card-text">投资期限</p> <p>3月</p></div>
-      <div class="col-2">    <p><a href="#" class="btn btn-primary">Go somewhere</a></p> </div>
+      <div class="col-2">    <p><a href="<%= bill_url(bill)%>" class="btn btn-primary">投资</a></p> </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Channels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Qq group</th>
+      <th>Qq group name</th>
+      <th>Group master qq</th>
+      <th>Phone number</th>
+      <th>Master name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @channels.each do |channel| %>
+      <tr>
+        <td><%= channel.qq_group %></td>
+        <td><%= channel.qq_group_name %></td>
+        <td><%= channel.group_master_qq %></td>
+        <td><%= channel.phone_number %></td>
+        <td><%= channel.master_name %></td>
+        <td><%= link_to 'Show', channel %></td>
+        <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
+        <td><%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Channel', new_channel_path %>

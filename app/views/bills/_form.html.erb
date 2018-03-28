@@ -1,7 +1,17 @@
 <%= simple_form_for @bill do |f| %>
-    <%= f.input :register_link, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
-    <%= f.input :content, hint: 'No special characters.' %>
-    <%= f.input :doc, inline_label: 'Yes, remember me' %>
+    <%= f.association :platform, collection: Platform.all, label_method: :name,
+                      label: '平台名称', value_method: :id %>
+    <%= f.association :channel, collection: Channel.all, label_method: :qq_group_name,
+                      label: '渠道名称', value_method: :id, as: :radio_buttons %>
+    <%= f.input :bill_name, label: '单子名称' %>
+    <%= f.input :doc, label: '文档地址' %>
+    <%= f.input :content, label: '文档内容' %>
+    <%= f.input :apr, label: '收益率' %>
+    <%= f.input :time_horizon, label: '投资期限' %>
+    <%= f.input :per_10000, lable: '万元投资收益率' %>
+    <%= f.input :bill_type, lable: '单子类型备用字段' %>
+    <%= f.input :states %>
+    <%= f.input :states, as: :radio_buttons, collection: [['1', '开放'], ['2', '关闭'], ['0', '未处理']], label_method: :second, value_method: :first %>
+    <%= f.input :register_link, label: '注册链接' %>
     <%= f.button :submit %>
 <% end %>
-

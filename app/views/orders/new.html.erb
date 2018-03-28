@@ -2,7 +2,7 @@
   bill_id = params[:bill_id]
   bill = Bill.find(bill_id)
   crumbs = [{text: '主页', url: '/'}]
-  crumbs << {text: bill.name, url: bill_url(bill)}
+  crumbs << {text: bill.bill_name, url: bill_url(bill)}
   crumbs << {text: '交单', url: request.path}
 %>
 
