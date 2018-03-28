@@ -1,7 +1,16 @@
+<%
+  bill_id = params[:bill_id]
+  bill = Bill.find(bill_id)
+  crumbs = [{text: '主页', url: '/'}]
+  crumbs << {text: bill.name, url: bill_url(bill)}
+  crumbs << {text: '交单', url: request.path}
+%>
+
+<%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
+
 <div class="container">
   <div class="row">
     <div class="form-signin">
-      <h1>New Order</h1>
 
       <%= render 'form', order: @order %>
 

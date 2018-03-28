@@ -1,9 +1,14 @@
 <%= simple_form_for(@order, :html => { :multipart => true }) do |f| %>
-    <%= f.input :platform_id,
-                collection: Platform.all,
-                :label_method => lambda { |platform| "#{platform.name}"},
-                label: '平台名称',
-                :input_html => {id: 'e1'} %>
+    <%= if params[:bill_id].blank?
+         f.input :platform_id,
+                 collection: Platform.all,
+                 :label_method => lambda { |platform| "#{platform.name}" },
+                 label: '平台名称',
+                 :input_html => {id: 'e1'}
+       else
+         Platform.find(params[:bill_id]).name
+       end
+    %>
 
     <%= f.input :phone_num, label: '手机号码' %>
     <%= f.input :investor_username, label: '姓名' %>

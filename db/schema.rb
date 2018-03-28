@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328025600) do
+ActiveRecord::Schema.define(version: 20180328083748) do
 
   create_table "bills", force: :cascade do |t|
     t.string "doc"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180328025600) do
     t.datetime "updated_at", null: false
     t.integer "invest_count"
     t.string "invest_range"
+    t.string "bill_name"
     t.index ["channel_id"], name: "index_bills_on_channel_id"
     t.index ["platform_id"], name: "index_bills_on_platform_id"
   end
