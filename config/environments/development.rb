@@ -26,6 +26,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # config.sass.preferred_syntax = :sass
   # config.sass.line_comments = false
   # config.sass.cache = false
