@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   # GET /bills
   # GET /bills.json
@@ -10,6 +11,14 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+  end
+
+  def search
+    @bills = if params[:q].present?
+               Bill.where("bill_name LIKE ?", "%#{params[:q]}%")
+             else
+               Bill.all
+             end
   end
 
   # GET /bills/new

@@ -8,10 +8,9 @@
     <%= f.input :content, label: '文档内容' %>
     <%= f.input :apr, label: '收益率' %>
     <%= f.input :time_horizon, label: '投资期限' %>
-    <%= f.input :per_10000, lable: '万元投资收益率' %>
-    <%= f.input :bill_type, lable: '单子类型备用字段' %>
-    <%= f.input :states %>
-    <%= f.input :states, as: :radio_buttons, collection: [['1', '开放'], ['2', '关闭'], ['0', '未处理']], label_method: :second, value_method: :first %>
+    <%= f.input :per_10000, label: '万元投资收益率' %>
+    <%= f.input :bill_type, label: '单子类型备用字段' %>
+    <%= f.input :states, as: :radio_buttons, collection: [['1', '开放'], ['2', '关闭'], ['0', '未处理']], label_method: :second, value_method: :first, label: '状态' %>
     <%= f.input :register_link, label: '注册链接' %>
     <%= f.button :submit %>
 <% end %>
