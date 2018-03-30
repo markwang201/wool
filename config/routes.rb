@@ -12,5 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get :fast_submit , to: 'orders#fast_submit'
+  get :order_search, to: 'orders#search'
+
   resources :orders
 end

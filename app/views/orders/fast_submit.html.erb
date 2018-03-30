@@ -1,0 +1,16 @@
+<%
+  crumbs = [{text: '主页', url: '/'}]
+  crumbs << {text: '快速交单', url: request.path}
+%>
+
+<%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
+
+<div class="container">
+  <div class="row">
+    <div class="form-signin">
+
+      <%= render 'form', order: @order %>
+
+    </div>
+  </div>
+</div>

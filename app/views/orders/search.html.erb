@@ -1,0 +1,32 @@
+<%
+  crumbs = [{text: '主页', url: '/'}]
+  crumbs << {text: '快速查单', url: request.path}
+%>
+
+<%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
+<%= form_tag(order_search_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :phone_num, params[:phone_num], placeholder: "投资平台账号手机号码" %>
+    <%= text_field_tag :password, params[:password], placeholder: "密码" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.platform.try(:name) %></td>
+        <td><%= order.phone_num  %></td>
+        <td><%= order.investor_username %></td>
+        <td><%= order.qq_number %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+

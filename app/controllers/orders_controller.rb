@@ -10,8 +10,24 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+  end
 
+  def fast_submit
+    @order = Order.new(order_params)
 
+    respond_to do |format|
+      if @order.save
+        format.html { redirect_to @order, notice: '交单成功!' }
+        format.json { render :show, status: :created, location: @order }
+      else
+        format.html { render :fast_submit }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def search
+    @orders = Order.all#where(phone_num: params[:phone_num], password: params[:password])
   end
 
   # GET /orders/new
@@ -26,9 +42,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    binding.pry
     @order = Order.new(order_params)
-    binding.pry
 
     respond_to do |format|
       if @order.save
