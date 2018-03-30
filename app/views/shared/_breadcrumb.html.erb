@@ -1,8 +1,15 @@
-<ul class="inline breadcrumb">
-  <% crumbs.each_with_index do |crumb, index| %>
-    <li>
-      <p><%= link_to content_tag(:span, crumb[:text]), crumb[:url] %></p>
-      <%= content_tag(:span, '', class: "divider icon-uniE600", 'aria-hidden'=> "title") unless index == crumbs.size - 1%>
-    </li>
-  <% end %>
-</ul>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <% crumbs.each_with_index do |crumb, index| %>
+        <% if index === crumbs.size - 1 %>
+            <li class="breadcrumb-item active" aria-current="page">
+              <%= content_tag(:span, crumb[:text]) %>
+            </li>
+        <% else %>
+            <li class="breadcrumb-item">
+              <%= link_to content_tag(:span, crumb[:text]), crumb[:url] %>
+            </li>
+        <% end %>
+    <% end %>
+  </ol>
+</nav>

@@ -28,11 +28,7 @@ class PlatformsController < ApplicationController
       upload
       platform_params[:logo] = platform_params[:logo].original_filename
     end
-    debugger
     @platform = Platform.new(platform_params)
-
-
-
     respond_to do |format|
       if @platform.save
         format.html { redirect_to @platform, notice: 'Platform was successfully created.' }

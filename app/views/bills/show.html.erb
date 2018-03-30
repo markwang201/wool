@@ -1,94 +1,69 @@
-<p id="notice"><%= notice %></p>
+<%
+  bill_id = params[:id]
+  bill = Bill.find(bill_id)
+  crumbs = [{text: '主页', url: '/'}]
+  crumbs << {text: bill.bill_name + "攻略", url: bill_url(bill)}
+%>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <%= @bill.bill_name %>
-    </div>
-    <div class="card-body">
-      <div id="accordion">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                投资攻略:
-              </button>
-            </h5>
-          </div>
-
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-              仅限投资3月  当天投资可以多笔复投， 隔日复投不结算
+<%= render(partial: 'shared/breadcrumb', locals: {crumbs: crumbs}) %>
 
 
-              投资后务必当天交单，超过2天提交数据不结算
-
-              钱包金融，原名好贷宝，A股上市公司奥马电器（股票代码：002668）旗下平台，安全过冬平台。
-
-              手机电脑注册链接
-
-              http://m.qb-jr.com/activity/register_giving_money/act_name_zhuce/channel_30053
-
-              注册后下载app或者电脑操作仅限投资3月标；单号1w-100万，大于100w可申请。
-
-              当天可以复投，复投同价，复投只能3月
-
-              3月标参考收益如下
-
-              1w收益=利息280+红包10+返现
-
-              3w收益=利息840+红包38+返现
-
-              5w收益=利息1400+红包78+返现
-
-              8w收益=利息2240+红包128+返现
-
-              10w收益=利息2800+红包128+返现
-
-              4、交单格式：手机+姓名+投资金额+期限  下工作日晚上返现  混投的需要分开不同期限提交
-
-              平台注册红包、充值红包以官网为准，攻略仅做参考
-
-              注册红包:
-              <%= @bill.content %>
-            </div>
-          </div>
+<div class="card">
+  <div class="card-header">
+    <%= @bill.bill_name %>
+  </div>
+  <div class="card-body card_boy_custom">
+    <div class="card">
+      <div class="card-header collapse_header" id="headingOne">
+        <div class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            投资攻略:
+          </button>
         </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                平台介绍
-              </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-              <%= @bill.platform.introduce %>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <%= raw @bill.content %>
         </div>
       </div>
     </div>
-    <div class="card-footer text-muted">
-      <a href="<%= "/orders/new?bill_id=#{@bill.id}"%>" class="btn btn-primary">交单</a>
+    <div class="card">
+      <div class="card-header collapse_header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            平台介绍
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <%= raw @bill.platform.introduce %>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header collapse_header" id="headingThree">
+        <div class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Collapsible Group Item #3
+          </button>
+        </div>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', bills_path %>
+  <div class="card-footer text-muted">
+    <a href="<%= "/orders/new?bill_id=#{@bill.id}" %>" class="btn btn-primary">交单</a>
+  </div>
+</div>

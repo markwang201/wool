@@ -33,9 +33,7 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    binding.pry
     @bill = Bill.new(bill_params)
-    binding.pry
     respond_to do |format|
       if @bill.save
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
