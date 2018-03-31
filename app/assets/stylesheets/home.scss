@@ -5,3 +5,30 @@
 
   html,body{ font-size: 10px;  }
 }
+
+a {
+  color: #0f91dd;
+}
+
+.btn-link {
+  color: #0f91dd;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0f91dd;
+  border-color: #0f91dd;
+}
+
+.btn-outline-success {
+  color: #0f91dd;
+  background-color: transparent;
+  background-image: none;
+  border-color: #0f91dd;
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #0f91dd;
+  border-color: #0f91dd;
+}

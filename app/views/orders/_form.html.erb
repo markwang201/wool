@@ -6,7 +6,7 @@
                  label: '平台名称',
                  :input_html => {id: 'e1'}
        else
-         Platform.find(params[:bill_id]).name
+         #Platform.find(params[:bill_id]).name
        end
     %>
 
@@ -21,7 +21,7 @@
     <%= f.input :platform_username, label: '平台用户名' %>
     <%= f.input :password, label: '查询密码' %>
     <%= f.input :note, label: '备注' %>
-    <%= f.input :invest_date, type: "date", label: '投资日期' %>
-    <%= f.button :submit %>
+    <!--<%= f.input :invest_date, type: "date", label: '投资日期' %>-->
+    <%= f.button :submit, '提交', class: 'btn btn-outline-success my-2 my-sm-0' %>
 <% end %>
 

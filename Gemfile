@@ -9,6 +9,7 @@ gem 'simple_form'
 gem "select2-rails"
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'faraday'
 
 gem 'devise'
 

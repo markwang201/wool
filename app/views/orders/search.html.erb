@@ -4,14 +4,20 @@
 %>
 
 <%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
-<%= form_tag(order_search_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :phone_num, params[:phone_num], placeholder: "投资平台账号手机号码" %>
-    <%= text_field_tag :password, params[:password], placeholder: "密码" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
-<table>
+<div class="text-center form-signin">
+  <%= form_tag(order_search_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :phone_num, params[:phone_num], placeholder: "投资平台账号手机号码", class: 'form-control' %>
+      <%= text_field_tag :password, params[:password], placeholder: "密码", class: 'form-control mt-2' %>
+      <%= submit_tag "查单", :name => nil, class: 'btn btn-outline-success mt-3' %>
+  <% end %>
+</div>
+<table class="table">
   <thead>
   <tr>
+    <th scope="col">名称</th>
+    <th scope="col">手机号码</th>
+    <th scope="col">姓名</th>
+    <th scope="col">投资期限</th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -22,7 +28,7 @@
         <td><%= order.platform.try(:name) %></td>
         <td><%= order.phone_num  %></td>
         <td><%= order.investor_username %></td>
-        <td><%= order.qq_number %></td>
+        <td><%= order.time_horizon %></td>
       </tr>
   <% end %>
   </tbody>
