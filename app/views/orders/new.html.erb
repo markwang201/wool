@@ -1,9 +1,13 @@
 <%
   bill_id = params[:bill_id]
-  bill = Bill.find(bill_id)
   crumbs = [{text: '主页', url: '/'}]
-  crumbs << {text: bill.bill_name, url: bill_url(bill)}
-  crumbs << {text: '交单', url: request.path}
+  if bill_id.present?
+    bill = Bill.find(bill_id)
+    crumbs << {text: bill.bill_name, url: bill_url(bill)}
+    crumbs << {text: '交单', url: request.path}
+  else
+    crumbs << {text: '快速交单', url: request.path}
+  end
 %>
 
 <%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>

@@ -13,20 +13,6 @@ class OrdersController < ApplicationController
   def show
   end
 
-  def fast_submit
-    @order = Order.new(order_params)
-
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: '交单成功!' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :fast_submit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def search
     @orders = Order.all#where(phone_num: params[:phone_num], password: params[:password])
   end
@@ -43,14 +29,16 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    if order_params[:bill_id].present?
+      order_params[:platform_id] = Bill.find(order_params[:bill_id]).platform_id
+    end
     @order = Order.new(order_params)
-
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to @order, notice: '交单成功' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { render :action => "new" }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -88,8 +76,9 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.fetch(:order, {}).permit(:platform_id, :phone_num, :investor_username, :time_horizon, :amount, :alipay, :alipay_name,
-      :qq_number, :qq_name, :screenshots, :password, :note
+      @order_params ||= params.fetch(:order, {}).permit(:platform_id, :phone_num, :investor_username, :time_horizon, :amount, :alipay, :alipay_name,
+      :qq_number, :qq_name, :screenshots, :password, :note,  :bill_id
+
       )
     end
 end

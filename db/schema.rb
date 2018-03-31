@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329013307) do
+ActiveRecord::Schema.define(version: 20180331070701) do
 
   create_table "bills", force: :cascade do |t|
     t.string "doc"
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20180329013307) do
     t.string "expect_money"
     t.date "invest_date"
     t.string "invest_type"
-    t.integer "bills_id"
-    t.index ["bills_id"], name: "index_orders_on_bills_id"
+    t.integer "bill_id"
+    t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["channel_id"], name: "index_orders_on_channel_id"
     t.index ["platform_id"], name: "index_orders_on_platform_id"
     t.index ["user_id"], name: "index_orders_on_user_id"

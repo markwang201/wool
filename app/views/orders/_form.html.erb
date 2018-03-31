@@ -1,14 +1,16 @@
-<%= simple_form_for(@order, :html => { :multipart => true }) do |f| %>
-    <%= if params[:bill_id].blank?
-         f.input :platform_id,
-                 collection: Platform.all,
-                 :label_method => lambda { |platform| "#{platform.name}" },
-                 label: '平台名称',
-                 :input_html => {id: 'e1'}
-       else
-         #Platform.find(params[:bill_id]).name
-       end
-    %>
+<%= simple_form_for(@order, :html => {:multipart => true}) do |f| %>
+    <% if params[:bill_id].blank? %>
+    <%= f.input :platform_id,
+        collection: Platform.all,
+        :label_method => lambda { |platform| "#{platform.name}" },
+        label: '平台名称',
+        :input_html => {id: 'e1'} %>
+    <% else %>
+        <%= f.hidden_field :platform_id, value: Bill.find(params[:bill_id]).platform_id %>
+        <%= f.hidden_field :bill_id, value: params[:bill_id] %>
+    <% end %>
+
+    <%= hidden_field_tag 'bill_id', params[:bill_id] %>
 
     <%= f.input :phone_num, label: '手机号码' %>
     <%= f.input :investor_username, label: '姓名' %>
@@ -21,7 +23,8 @@
     <%= f.input :platform_username, label: '平台用户名' %>
     <%= f.input :password, label: '查询密码' %>
     <%= f.input :note, label: '备注' %>
-    <!--<%= f.input :invest_date, type: "date", label: '投资日期' %>-->
-    <%= f.button :submit, '提交', class: 'btn btn-outline-success my-2 my-sm-0' %>
+    <div class="text-center">
+      <%= f.button :submit, '提交', class: 'btn btn-outline-success my-2 my-sm-0' %>
+    </div>
 <% end %>
 
