@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
   get :order_search, to: 'orders#search'
 
+  get :admin_123, to: 'admin#index'
+
   resources :orders
 end
