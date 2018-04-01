@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Editing Bill</h1>
-  <%= render 'form', bill: @bill %>
+  <div class="form-signin">
+    <%= render 'form', bill: @bill %>
+  </div>
   <%= link_to 'Show', @bill %> |
   <%= link_to 'Back', bills_path %>
 </div>

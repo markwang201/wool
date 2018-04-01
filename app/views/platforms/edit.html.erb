@@ -1,6 +1,9 @@
 <h1>Editing Platform</h1>
 
-<%= render 'form', platform: @platform %>
+<div class="form-signin">
+  <%= render 'form', platform: @platform %>
+  <%= link_to 'Show', @platform %> |
+  <%= link_to 'Back', platforms_path %>
+</div>
 
-<%= link_to 'Show', @platform %> |
-<%= link_to 'Back', platforms_path %>
+

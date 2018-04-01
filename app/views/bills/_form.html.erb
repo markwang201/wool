@@ -5,9 +5,9 @@
                       label: '渠道名称', value_method: :id, as: :radio_buttons %>
     <%= f.input :bill_name, label: '单子名称' %>
     <%= f.input :doc, label: '文档地址' %>
-    <%= f.input :content, label: '文档内容' %>
+    <%= f.input :content, label: '文档内容', as: 'text' %>
     <%= f.input :apr, label: '收益率' %>
-    <%= f.input :time_horizon, label: '投资期限' %>
+    <%= f.input :time_horizon, label: '投资期限', as: 'string' %>
     <%= f.input :per_10000, label: '万元投资收益率' %>
     <%= f.input :bill_type, label: '单子类型备用字段' %>
     <%= f.input :states, as: :radio_buttons, collection: [['1', '开放'], ['2', '关闭'], ['0', '未处理']], label_method: :second, value_method: :first, label: '状态' %>

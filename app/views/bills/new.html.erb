@@ -1,7 +1,9 @@
 <div class="container">
   <div class="container">
     <h5>新建单子</h5>
-    <%= render 'form', bill: @bill %>
-    <%= link_to 'Back', bills_path %>
+    <div class="form-signin">
+      <%= render 'form', bill: @bill %>
+      <%= link_to 'Back', bills_path %>
+    </div>
   </div>
 </div>
