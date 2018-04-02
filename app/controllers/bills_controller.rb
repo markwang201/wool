@@ -15,7 +15,7 @@ class BillsController < ApplicationController
 
   def search
     @bills = if params[:q].present?
-               Bill.where("bill_name LIKE ?", "%#{params[:q]}%")
+               Bill.public_bills.where("bill_name LIKE ?", "%#{params[:q]}%")
              else
                Bill.all
              end

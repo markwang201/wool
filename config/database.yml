@@ -15,9 +15,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   username: root
-  password: admin201
+  password:
   host: localhost
-  socket: /var/run/mysqld/mysqld.sock  # /tmp/mysql.sock
+  socket:  /tmp/mysql.sock
 
 development:
   <<: *default

@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331070701) do
+ActiveRecord::Schema.define(version: 20180402080506) do
 
   create_table "bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "doc"
-    t.text "content"
+    t.text "content", limit: 4294967295
     t.string "register_link"
     t.string "apr"
     t.text "time_horizon"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20180331070701) do
   end
 
   create_table "platforms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "introduce"
+    t.text "introduce", limit: 4294967295
     t.string "platform_type"
     t.string "level"
     t.string "logo"
