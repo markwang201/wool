@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180331070701) do
 
-  create_table "bills", force: :cascade do |t|
+  create_table "bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "doc"
     t.text "content"
     t.string "register_link"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20180331070701) do
     t.decimal "per_10000", precision: 15, scale: 5
     t.string "bill_type"
     t.string "states"
-    t.integer "channel_id"
-    t.integer "platform_id"
+    t.bigint "channel_id"
+    t.bigint "platform_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "invest_count"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180331070701) do
     t.index ["platform_id"], name: "index_bills_on_platform_id"
   end
 
-  create_table "channels", force: :cascade do |t|
+  create_table "channels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "qq_group"
     t.string "qq_group_name"
     t.string "group_master_qq"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20180331070701) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "channel_id"
-    t.integer "user_id"
-    t.integer "platform_id"
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "channel_id"
+    t.bigint "user_id"
+    t.bigint "platform_id"
     t.string "phone_num"
     t.string "investor_username"
     t.string "time_horizon"
@@ -64,14 +64,14 @@ ActiveRecord::Schema.define(version: 20180331070701) do
     t.string "expect_money"
     t.date "invest_date"
     t.string "invest_type"
-    t.integer "bill_id"
+    t.bigint "bill_id"
     t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["channel_id"], name: "index_orders_on_channel_id"
     t.index ["platform_id"], name: "index_orders_on_platform_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "platforms", force: :cascade do |t|
+  create_table "platforms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "introduce"
     t.string "platform_type"
     t.string "level"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20180331070701) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "password"
     t.string "qq_number"
@@ -105,4 +105,10 @@ ActiveRecord::Schema.define(version: 20180331070701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bills", "channels"
+  add_foreign_key "bills", "platforms"
+  add_foreign_key "orders", "bills"
+  add_foreign_key "orders", "channels"
+  add_foreign_key "orders", "platforms"
+  add_foreign_key "orders", "users"
 end
