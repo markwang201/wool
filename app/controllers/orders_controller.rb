@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def search
-    @orders = Order.all#where(phone_num: params[:phone_num], password: params[:password])
+    @orders = Order.where(phone_num: params[:phone_num], password: params[:password])
   end
 
   # GET /orders/new
