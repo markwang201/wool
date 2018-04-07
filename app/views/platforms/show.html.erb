@@ -1,4 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_platform_path(@platform) %> |
-<%= link_to 'Back', platforms_path %>
+<table class="table">
+  <thead>
+
+  </thead>
+
+  <tbody>
+  <tr>
+    <%= @platform.name %>
+  </tr>
+  <tr>
+    <%= image_tag("/platform_logo/" + @platform.logo, class: 'w-100') %>
+  </tr>
+  <tr>
+    <%= @platform.introduce %>
+  </tr>
+  <tr>
+    <%= link_to 'Edit', edit_platform_path(@platform) %>
+  </tr>
+  <tr>
+    <%= link_to 'Back', platforms_path %>
+  </tr>
+  </tbody>
+</table>

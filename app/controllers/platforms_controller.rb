@@ -43,7 +43,6 @@ class PlatformsController < ApplicationController
 
 
   def upload
-    # debugger
     uploaded_io = params[:platform][:logo]
     File.open(Rails.root.join('public', 'platform_logo', uploaded_io.original_filename), 'wb') do |file|
       file.write(uploaded_io.read)
@@ -53,6 +52,10 @@ class PlatformsController < ApplicationController
   # PATCH/PUT /platforms/1
   # PATCH/PUT /platforms/1.json
   def update
+    if platform_params[:logo].present?
+      upload
+      platform_params[:logo] = platform_params[:logo].original_filename
+    end
     respond_to do |format|
       if @platform.update(platform_params)
         format.html { redirect_to @platform, notice: 'Platform was successfully updated.' }
