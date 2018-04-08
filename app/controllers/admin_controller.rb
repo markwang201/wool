@@ -4,4 +4,11 @@ class AdminController < ApplicationController
 
   end
 
+  def qqbot_api
+    # if params[:message]
+    #
+    # end
+
+    render(inline:  'dddd') and return
+  end
 end

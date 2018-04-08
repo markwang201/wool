@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   get :admin_123, to: 'admin#index'
 
+  get :qqbot_api, to: 'admin#qqbot_api'
+
   resources :orders
 end
