@@ -13,9 +13,8 @@ def onQQMessage(bot, contact, member, content):
     elif content == '-stop':
         bot.SendTo(contact, 'QQ机器人已关闭')
         bot.Stop()
-    if contact.ctype == 'group':
+    if contact.ctype == 'group' and contact.name in ['信通袋', 'p2p互金交流2群']:
         if not bot.isMe(contact, member):
-            #pdb.set_trace()
             payload = {'message': content}
             res = requests.get("http://localhost:3001/qqbot_api", params=payload)
             str_len = len(res.text)
