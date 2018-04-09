@@ -5,10 +5,11 @@ class AdminController < ApplicationController
   end
 
   def qqbot_api
-    # if params[:message]
-    #
-    # end
+    yaml = YAML.load_file( Rails.root + 'config/qqbot_data.yml' )
+    hash  = HashWithIndifferentAccess.new(yaml)
+    message = params[:message]
 
-    render(inline:  'dddd') and return
+    value = hash.find { |key, _| message.size > 1 && key.include?(message) }
+    render(inline:  "#{value && value[1]}" ) and return
   end
 end
