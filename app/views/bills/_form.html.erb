@@ -1,5 +1,5 @@
 <%= simple_form_for @bill do |f| %>
-    <%= f.association :platform, collection: Platform.all.order.order(updated_at: :desc), label_method: :name,
+    <%= f.association :platform, collection: Platform.all.order(updated_at: :desc), label_method: :name,
                       label: '平台名称', value_method: :id %>
     <%= f.association :channel, collection: Channel.all, label_method: :qq_group_name,
                       label: '渠道名称', value_method: :id, as: :radio_buttons %>
