@@ -16,7 +16,8 @@ def onQQMessage(bot, contact, member, content):
     if contact.ctype == 'group' and contact.name in ['信通袋', 'p2p互金交流2群']:
         if not bot.isMe(contact, member):
             payload = {'message': content}
-            res = requests.get("http://localhost:3001/qqbot_api", params=payload)
+            # res = requests.get("http://localhost:3001/qqbot_api", params=payload)
+            res = requests.get("http://localhost/qqbot_api", params=payload)
             str_len = len(res.text)
             if str_len > 0 and str_len < 200:
                 bot.SendTo(contact, res.text)
