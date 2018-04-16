@@ -11,6 +11,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'faraday'
 
+gem "wechat"
+
 gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
