@@ -3,6 +3,6 @@ class Bill < ApplicationRecord
   belongs_to :platform
 
   def self.public_bills
-    where(states: 1)
+    includes(:platform).where(states: 1)
   end
 end
