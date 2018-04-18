@@ -1,8 +1,4 @@
 default: &default
-  corpid: "corpid"
-  corpsecret: "corpsecret"
-  agentid:  1
-# Or if using public account, only need above two line
   appid: "wxd0257a93391bf9c0"
   secret: "f0dfe9ca6ff58284b39833f8c1307d40"
   token:    "wangyish201"
