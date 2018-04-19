@@ -1,6 +1,7 @@
 <%
   crumbs = [{text: '主页', url: '/'}]
   crumbs << {text: '快速查单', url: request.path}
+  title '快速查单'
 %>
 
 <%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>

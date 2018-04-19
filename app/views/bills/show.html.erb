@@ -3,6 +3,7 @@
   bill = Bill.find(bill_id)
   crumbs = [{text: '主页', url: '/'}]
   crumbs << {text: bill.bill_name + "攻略", url: bill_url(bill)}
+  title @bill.bill_name
 %>
 
 <%= render(partial: 'shared/breadcrumb', locals: {crumbs: crumbs}) %>

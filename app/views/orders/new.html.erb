@@ -5,8 +5,10 @@
     bill = Bill.find(bill_id)
     crumbs << {text: bill.bill_name, url: bill_url(bill)}
     crumbs << {text: '交单', url: request.path}
+    title '交单'
   else
     crumbs << {text: '快速交单', url: request.path}
+    title '快速交单'
   end
 %>
 
