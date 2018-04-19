@@ -11,7 +11,8 @@
 </head>
 <body>
 <div class="container">
-  <%=  current_user.try(:admin?) ? render('layouts/admin_header') : render('layouts/header') %>
+
+  <%= render('layouts/header') %>
   <% if notice %>
       <p class="notice"><%= notice %></p>
   <% end %>
