@@ -15,4 +15,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require select2-full
+//= require ckeditor/init
 //= require_tree .
