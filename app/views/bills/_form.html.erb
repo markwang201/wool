@@ -1,11 +1,11 @@
 <%= simple_form_for @bill do |f| %>
     <%= f.association :platform, collection: Platform.all.order(updated_at: :desc), label_method: :name,
-                      label: '平台名称(请先选择平台)', value_method: :id %>
+                      label: '平台名称', value_method: :id %>
     <%= f.association :channel, collection: Channel.all, label_method: :qq_group_name,
                       label: '渠道名称', value_method: :id, as: :radio_buttons %>
     <%= f.input :bill_name, label: '单子名称' %>
     <%= f.input :doc, label: '文档地址' %>
-    <%= f.input :content, label: '文档内容', as: 'text' %>
+    <%= f.input :content, label: '文档内容', as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
     <%= f.input :apr, label: '收益率' %>
     <%= f.input :time_horizon, label: '投资期限', as: 'string' %>
     <%= f.input :per_10000, label: '万元投资收益率' %>
