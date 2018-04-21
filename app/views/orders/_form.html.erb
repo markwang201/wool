@@ -4,24 +4,25 @@
         collection: Platform.all,
         :label_method => lambda { |platform| "#{platform.name}" },
         label: '平台名称',
-        :input_html => {id: 'e1'} %>
+        :input_html => {id: 'select2input'} %>
     <% else %>
         <%= f.hidden_field :platform_id, value: Bill.find(params[:bill_id]).platform_id %>
         <%= f.hidden_field :bill_id, value: params[:bill_id] %>
     <% end %>
+    <div class="new-order-form">
+      <%= hidden_field_tag 'bill_id', params[:bill_id] %>
 
-    <%= hidden_field_tag 'bill_id', params[:bill_id] %>
+      <%= f.input :phone_num, label: '号码' %>
+      <%= f.input :investor_username, label: '名字' %>
+      <%= f.input :time_horizon, label: '标期' %>
+      <%= f.input :amount, label: '金额' %>
+      <%= f.input :alipay, label: '收单信息(请用空格隔开)', maxlength: "64" %>
 
-    <%= f.input :phone_num, label: '号码' %>
-    <%= f.input :investor_username, label: '名字' %>
-    <%= f.input :time_horizon, label: '标期' %>
-    <%= f.input :amount, label: '金额' %>
-    <%= f.input :alipay, label: '收单信息(请用空格隔开)', maxlength: "64" %>
-
-    <%= f.input :password, label: '查询密码' %>
-    <%= f.input :note, label: '备注' %>
-    <div class="text-center">
-      <%= f.button :submit, '提交', class: 'btn btn-outline-success my-2 my-sm-0' %>
+      <%= f.input :password, label: '查询密码' %>
+      <%= f.input :note, label: '备注' %>
+      <div class="text-center">
+        <%= f.button :submit, '提交', class: 'btn btn-outline-success my-2 my-sm-0' %>
+      </div>
     </div>
 <% end %>
 
