@@ -1,5 +1,14 @@
-<ul>
+<div class="center row">
   <% @articles.each do |article| %>
-      <li><%= link_to article.title, article_path(article)  %></li>
+      <div class="col-3">
+        <a href="<%= %>"><%= image_tag article.image.url(:thumb) %></a></div>
+      <div class="col-9">
+        <div class="row">
+          <%= link_to article.title, article_path(article) %>
+        </div>
+        <div class="row">
+          <div class="y-left">  <a class="lbtn" target="_blank" ga_event="article_read_count" href="/item/6545723966638522893/">4阅读&nbsp;⋅</a>  <a class="lbtn comment" target="_blank" ga_event="article_comment_click" href="/item/6545723966638522893//#comment_area">&nbsp;0评论&nbsp;</a> <span class="lbtn">⋅&nbsp;2018-04-18 17:58</span>    </div>
+        </div>
+        </div>
   <% end %>
-</ul>
+</div>
