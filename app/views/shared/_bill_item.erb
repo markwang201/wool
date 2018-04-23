@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-sm-2 col-4" style="align-self: center" > <a href="<%= bill_url(bill) %>"><%= image_tag("/platform_logo/"+bill.platform.logo, class: 'w-100') %></a></div>
       <div class="col-sm-2 column-none"> <p class="card-text">起投金额</p> <p></p>10000元</div>
-      <div class="col-sm-2 col-4"> <p class="card-text">预计最高年化</p> <p></p><%= bill.apr %></div>
-      <div class="col-sm-2 col-4"> <p class="card-text">投资期限</p> <p></p><%= bill.time_horizon %></div>
+      <div class="col-sm-2 col-4"> <a href="<%= bill_url(bill)%>" class="text-dark"><p class="card-text">预计最高年化</p> <p></p><%= bill.apr %></a></div>
+      <div class="col-sm-2 col-4"> <a href="<%= bill_url(bill)%>" class="text-dark"><p class="card-text">投资期限</p> <p></p><%= bill.time_horizon %></a></div>
       <div class="col-sm-2 column-none"> <p class="card-text">投资人数</p> <p></p>1人<%= bill.invest_count %></div>
       <div class="col-sm-2 column-none" style="align-self: center"> <a href="<%= bill_url(bill)%>" class="btn btn-primary">详细</a> </div>
     </div>

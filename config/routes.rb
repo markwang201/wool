@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  # class DomainConstraint
+  #   def initialize(domain)
+  #     @domains = domain
+  #   end
+  #
+  #   def matches?(request)
+  #     @domains.include? request.host
+  #   end
+  # end
+
+  #constraints DomainConstraint.new('ak.active.local:3002') do
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles
   resource :wechat, only: [:show, :create]
@@ -24,4 +35,9 @@ Rails.application.routes.draw do
   get :qqbot_api, to: 'admin#qqbot_api'
 
   resources :orders
+  #end
+
+  # constraints DomainConstraint.new('a3.active.local:3002') do
+  #    get '/', :to => redirect('/500.html')
+  # end
 end
