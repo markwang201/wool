@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   resources :orders
   #end
 
+  namespace :admin do
+    resources :articles
+  end
+
   # constraints DomainConstraint.new('a3.active.local:3002') do
   #    get '/', :to => redirect('/500.html')
   # end

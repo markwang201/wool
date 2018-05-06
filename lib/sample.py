@@ -8,12 +8,12 @@ import requests
 
 def onQQMessage(bot, contact, member, content):
     if content == '-hello':
-        pdb.set_trace()
+        # pdb.set_trace()
         bot.SendTo(contact, '你好，我是QQ机器人333')
     elif content == '-stop':
         bot.SendTo(contact, 'QQ机器人已关闭')
         bot.Stop()
-    if contact.ctype == 'group' and contact.name in ['信通袋', 'p2p互金交流2群']:
+    if contact.ctype == 'group' and contact.name in ['信通袋', 'AAAp2p互金交流2群']:
         if not bot.isMe(contact, member):
             payload = {'message': content}
             # res = requests.get("http://localhost:3001/qqbot_api", params=payload)

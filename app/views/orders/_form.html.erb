@@ -18,7 +18,7 @@
       <%= f.input :amount, label: '金额' %>
       <%= f.input :alipay, label: '收单信息(请用空格隔开)', maxlength: "64" %>
 
-      <%= f.input :password, label: '查询密.码' %>
+      <%= f.input :password, as: 'string' , label: '查询密.码' %>
       <%= f.input :note, label: '备注' %>
       <div class="text-center">
         <%= f.button :submit, '提交', class: 'btn btn-outline-success my-2 my-sm-0' %>

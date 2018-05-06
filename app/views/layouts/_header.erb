@@ -10,11 +10,16 @@
         <a class="nav-link" href="/">主页 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/orders/new">快速交单</a>
+        <a class="nav-link" href="/articles">文章</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/order_search">快速查单</a>
-      </li>
+      <% if !qq_host? %>
+          <li class="nav-item">
+            <a class="nav-link" href="/orders/new">快速交单</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/order_search">快速查单</a>
+          </li>
+      <% end %>
       <li class="nav-item qq">
         <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=ea599a5639d15758609076be15cad38f7e5d9132a25222d15f9e108c009f11d7"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="p2p互金交流2群" title="p2p互金交流2群"></a>
       </li>

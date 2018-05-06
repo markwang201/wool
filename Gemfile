@@ -16,6 +16,7 @@ gem "wechat"
 gem 'devise'
 
 gem 'meta-tags'
+gem 'request_store'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'

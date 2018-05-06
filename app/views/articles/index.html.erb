@@ -1,14 +1,23 @@
-<div class="center row">
+<div class="center container">
   <% @articles.each do |article| %>
-      <div class="col-3">
-        <a href="<%= %>"><%= image_tag article.image.url(:thumb) %></a></div>
-      <div class="col-9">
-        <div class="row">
-          <%= link_to article.title, article_path(article) %>
+      <div class="card" >
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <a href="<%= article_path(article) %>"><%= image_tag article.image.url(:thumb) %></a></div>
+            <div class="col-9">
+              <div class="row">
+                <%= link_to article.title, article_path(article), class: 'text-dark' %>
+              </div>
+              <div class="row">
+                <div class="y-left">
+                  <a class="lbtn" target="_blank" ga_event="article_read_count" href="/item/6545723966638522893/">4阅读&nbsp;⋅</a>
+                  <a class="lbtn comment" target="_blank" ga_event="article_comment_click" href="/item/6545723966638522893//#comment_area">&nbsp;0评论&nbsp;</a>
+                  <span class="lbtn">⋅&nbsp;2018-04-18 17:58</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row">
-          <div class="y-left">  <a class="lbtn" target="_blank" ga_event="article_read_count" href="/item/6545723966638522893/">4阅读&nbsp;⋅</a>  <a class="lbtn comment" target="_blank" ga_event="article_comment_click" href="/item/6545723966638522893//#comment_area">&nbsp;0评论&nbsp;</a> <span class="lbtn">⋅&nbsp;2018-04-18 17:58</span>    </div>
-        </div>
-        </div>
+      </div>
   <% end %>
 </div>
