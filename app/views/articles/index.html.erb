@@ -1,19 +1,23 @@
+<%
+  # truncate
+  word_length = browser.device.mobile? ? 23 : 42 %>
 <div class="center container">
   <% @articles.each do |article| %>
-      <div class="card" >
+      <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-3">
-              <a href="<%= article_path(article) %>"><%= image_tag article.image.url(:thumb) %></a></div>
-            <div class="col-9">
+            <div class="col-sm-2 col-6">
+              <a href="<%= article_path(article) %>"><%= image_tag article.image.url(:thumb) %></a>
+            </div>
+            <div class="col-sm-10 col-6">
               <div class="row">
-                <%= link_to article.title, article_path(article), class: 'text-dark' %>
+                <%= link_to article.title, article_path(article) %>
               </div>
-              <div class="row">
-                <div class="y-left">
-                  <a class="lbtn" target="_blank" ga_event="article_read_count" href="/item/6545723966638522893/">4阅读&nbsp;⋅</a>
-                  <a class="lbtn comment" target="_blank" ga_event="article_comment_click" href="/item/6545723966638522893//#comment_area">&nbsp;0评论&nbsp;</a>
-                  <span class="lbtn">⋅&nbsp;2018-04-18 17:58</span></div>
+              <div class="row article-abstract">
+                <%= truncate article.abstract, length: word_length %>
+              </div>
+              <div class="row article-footer">
+                <span><%= article.updated_at.strftime('%Y-%m-%d') %></span>&nbsp; <span>&nbsp;简互金</span>
               </div>
             </div>
           </div>
