@@ -2,6 +2,8 @@
   crumbs = [{text: '主页', url: '/'}]
   crumbs << {text: '文章列表', url: articles_path}
   crumbs << {text: @article.title, url: article_path(@article)}
+  title @article.title
+  description @article.abstract
 %>
 
 <%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
@@ -13,7 +15,6 @@
       <div class="meta" style="color: rgba(0, 0, 0, 0.5)">
         作者: <span class="name">简互金</span>
         <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title=""><%= @article.updated_at.strftime('%Y-%m-%d') %></span>
-        <!--<span class="wordage">字数 922</span>-->
        </div>
     </div>
   </div>

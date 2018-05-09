@@ -1,4 +1,6 @@
 <% title '首页' %>
 <main class="" style="margin-top: 10px">
-  <%= render partial: 'shared/bill_item', collection: @bills, as: 'bill' %>
+  <%= render(partial: 'shared/bill_item', collection: @bills, as: 'bill') if qq_host? %>
+
+  <%= render partial: 'shared/article', collection: @articles, as: 'article' %>
 </main>

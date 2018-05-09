@@ -8,7 +8,7 @@
 <div class="text-center form-signin">
   <%= form_tag(order_search_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :phone_num, params[:phone_num], placeholder: "号码", class: 'form-control' %>
-      <%= text_field_tag :password, params[:password], placeholder: "密码", class: 'form-control mt-2' %>
+      <%= text_field_tag :password, params[:password], placeholder: "查询码", class: 'form-control mt-2' %>
       <%= submit_tag "查单", :name => nil, class: 'btn btn-outline-success mt-3' %>
   <% end %>
 </div>

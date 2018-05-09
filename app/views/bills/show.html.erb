@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  <% if !qq_host? %>
+  <% if qq_host? %>
       <div class="card-footer text-muted">
         <a href="<%= "/orders/new?bill_id=#{@bill.id}" %>" class="btn btn-primary">交单</a>
       </div>
