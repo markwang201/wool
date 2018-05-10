@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="baidu-site-verification" content="3OU1ldSXjF" />
+  <meta name="baidu-site-verification" content="3OU1ldSXjF"/>
   <%= display_meta_tags({site: '简互金',
                          description: '让互金理财变得简单,告别繁琐,简单生活,简单理财',
                          keywords: 'P2P入门,理财交流,媒体单,P2P交流,简单生活,简单理财'}) %>
@@ -24,4 +24,18 @@
   <%= render 'layouts/footer' %>
 </div>
 </body>
+<script>
+  (function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
 </html>
