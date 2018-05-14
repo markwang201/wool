@@ -6,6 +6,9 @@
   description @article.abstract
 %>
 
+<% content_for :xiong_zhang_hao do %>
+    <%= render partial: 'layouts/xiongzhanghao', locals: { title: @article.title, image: @article.image.url(:thumb), updated_at: @article.updated_at  } %>
+<% end %>
 <%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
 
 <div class="card">
