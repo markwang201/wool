@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    # Article.where(topic: params[:topic_id], status: 'open')
     @articles = Article.all
   end
 

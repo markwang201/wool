@@ -1,6 +1,6 @@
 <%
   crumbs = [{text: '主页', url: '/'}]
-  crumbs << {text: '文章列表', url: request.path}
+  crumbs << {text: Topic.find(params[:topic_id]), url: request.path}
 %>
 
 <%= render(partial: 'shared/breadcrumb', locals: {crumbs: crumbs}) %>

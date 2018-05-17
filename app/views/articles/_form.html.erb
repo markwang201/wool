@@ -6,6 +6,8 @@
     <%= f.input :image, as: :file %>
     <%= f.input :abstract, as: :text%>
     <%= f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
+    <%= f.input :topic, collection: Topic::TOPICS, label_method: :second, value_method: :first, label: '类别' %>
+    <%= f.input :status, as: :radio_buttons, collection: [['1', '开放'], ['2', '关闭'], ['0', '未处理']], label_method: :second, value_method: :first, label: '状态' %>
   </div>
 
   <div class="form-actions">

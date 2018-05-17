@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   get '/:bill_id/orders/new', :to => 'orders#new'
 
+  get '/articles_list/:topic_id', :to => 'articles#index'
+
   get :order_search, to: 'orders#search'
 
   get :admin_123, to: 'admin#index'
