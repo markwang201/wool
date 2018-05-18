@@ -6,6 +6,8 @@
 
       <%= render partial: 'shared/article', collection: @articles, as: 'article' %>
     </div>
-    <%= render :partial => 'shared/latest_fanli' %>
+    <div class="col-sm-3 column-none" style="padding: 0px;">
+      <%= render :partial => 'shared/latest_fanli' %>
+    </div>
   </div>
 </main>

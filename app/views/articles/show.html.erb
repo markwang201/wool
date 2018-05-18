@@ -8,9 +8,9 @@
 %>
 
 <% content_for :xiong_zhang_hao do %>
-    <%= render partial: 'layouts/xiongzhanghao', locals: { title: @article.title, image: @article.image.url(:thumb), updated_at: @article.updated_at  } %>
+    <%= render partial: 'layouts/xiongzhanghao', locals: {title: @article.title, image: @article.image.url(:thumb), updated_at: @article.updated_at} %>
 <% end %>
-<%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
+<%= render(partial: 'shared/breadcrumb', locals: {crumbs: crumbs}) %>
 <div class="row">
   <div class="col-sm-9 col-12">
     <div class="card">
@@ -28,5 +28,8 @@
       </div>
     </div>
   </div>
-  <%= render :partial => 'shared/latest_fanli' %>
+  <div class="col-sm-3 column-none" style="padding: 0px;">
+    <%= render :partial => 'shared/latest_fanli' %>
+  </div>
 </div>
+
