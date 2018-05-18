@@ -33,9 +33,34 @@
 
 .article-abstract {
   margin-top: 3px;
-  width: 112%;
+  padding-right: 5px;
 }
 
 .article-footer {
   margin-top: 3px;
+}
+
+.no-image-article-time {
+  margin-right: 10px;
+}
+
+.right-box-title {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: white;
+  padding: 12px;
+}
+
+.right-box-title_main {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.carousel-img {
+  width: 800px;
+  height: 400px;
+  display: block !important;
+}
+
+.article-item-img {
+  width: 100%;
 }
