@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get '/:bill_id/orders/new', :to => 'orders#new'
 
-  get '/articles_list/:topic_id', :to => 'articles#index'
+  get '/articles_list/:topic_id', :to => 'articles#index', as: :articles_list
 
   get :order_search, to: 'orders#search'
 

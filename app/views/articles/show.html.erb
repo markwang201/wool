@@ -1,7 +1,8 @@
 <%
   crumbs = [{text: '主页', url: '/'}]
   crumbs << {text: '文章列表', url: articles_path}
-  crumbs << {text: @article.title, url: article_path(@article)}
+  crumbs << {text: @article.title, url: articles_path(@article.topic)}
+  #crumbs << {text: @article.title, url: articles_list_path(@article.topic)}
   title @article.title
   description @article.abstract
 %>
@@ -10,18 +11,22 @@
     <%= render partial: 'layouts/xiongzhanghao', locals: { title: @article.title, image: @article.image.url(:thumb), updated_at: @article.updated_at  } %>
 <% end %>
 <%= render(partial: 'shared/breadcrumb', locals: { crumbs: crumbs }) %>
-
-<div class="card">
-  <div class="card-header">
-    <div class="text-center"><h5><%= @article.title %></h5></div>
-    <div class="info">
-      <div class="meta" style="color: rgba(0, 0, 0, 0.5)">
-        作者: <span class="name">简互金</span>
-        <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title=""><%= @article.updated_at.strftime('%Y-%m-%d') %></span>
-       </div>
+<div class="row">
+  <div class="col-sm-9 col-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="text-center"><h5><%= @article.title %></h5></div>
+        <div class="info">
+          <div class="meta" style="color: rgba(0, 0, 0, 0.5)">
+            作者: <span class="name">简互金</span>
+            <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title=""><%= @article.updated_at.strftime('%Y-%m-%d') %></span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= raw @article.content %>
+      </div>
     </div>
   </div>
-  <div class="card-body">
-    <%= raw @article.content %>
-  </div>
+  <%= render :partial => 'shared/latest_fanli' %>
 </div>
