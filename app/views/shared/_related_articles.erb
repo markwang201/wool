@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-header">
+    <div class="right-box-title_main">相关文章</div>
+    <a href="<%= articles_list_path(topic || 1) %>" target="_blank">MORE&gt;</a>
+  </div>
+  <ul class="list-group list-group-flush">
+    <%= render partial: 'shared/article', collection: articles, as: 'article' %>
+  </ul>
+</div>
