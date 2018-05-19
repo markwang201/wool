@@ -51,3 +51,22 @@ a {
 body {
   background: #f3f3f3;
 }
+
+a {
+ color: #0f91dd;
+}
+
+.page-link {
+  color: #0f91dd;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #0f91dd;
+  border-color:#0f91dd;
+}
+
+.paginate-container {
+  margin-top: 8px;
+}
