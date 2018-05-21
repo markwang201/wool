@@ -16,7 +16,13 @@ Rails.application.routes.draw do
   resources :topics do
     resources :articles
   end
-  resources :articles
+
+  resources :articles do
+    collection do
+      get :search
+    end
+  end
+
   resource :wechat, only: [:show, :create]
   devise_for :users
   resources :channels

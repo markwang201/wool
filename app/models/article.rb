@@ -4,23 +4,23 @@ class Article < ApplicationRecord
   belongs_to :topic
 
   def self.public_articles
-    Article.where(status: '1')
+    Article.where(status: '1').order(updated_at: :desc)
   end
 
   def self.latest_fanli
-    public_articles.where(topic: '2').order(:updated_at).first(3)
+    public_articles.where(topic: '2').first(3)
   end
 
   def self.related_articles(topic='')
-    public_articles.where(topic: topic).order(:updated_at).first(3)
+    public_articles.where(topic: topic).first(3)
   end
 
   def self.topic_articles(topic='')
-    public_articles.where(topic: topic).order(:updated_at).first(3)
+    public_articles.where(topic: topic).first(3)
   end
 
   # topic 1
   def self.classic_articles
-    public_articles.where(topic: 1).order(:updated_at).first(3)
+    public_articles.where(topic: 1).first(3)
   end
 end

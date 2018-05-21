@@ -9,6 +9,10 @@ class ArticlesController < ApplicationController
     @articles = articles.where(topic_id: params[:topic_id]).paginate(:page => params[:page], :per_page => 10)
   end
 
+  def search
+    @articles = Article.public_articles.where("title like ? or content like ?", "%#{params[:q]}%", "%#{params[:q]}%").paginate(:page => params[:page], :per_page => 10)
+  end
+
   # GET /articles/1
   # GET /articles/1.json
   def show

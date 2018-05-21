@@ -4,7 +4,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.includes(:topic).order(:updated_at => :desc).all
   end
 
   # GET /articles/1

@@ -1,0 +1,9 @@
+<%
+  crumbs = [{text: '主页', url: '/'}]
+  crumbs << {text: '文章搜索', url: request.path}
+  title '文章搜索'
+%>
+
+<%= render(partial: 'shared/breadcrumb', locals: {crumbs: crumbs}) %>
+
+<%= render partial: 'shared/article', collection: @articles, as: 'article' %>
