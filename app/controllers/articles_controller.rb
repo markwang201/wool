@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
   def index
-    # Article.where(topic: params[:topic_id], status: 'open')
-    @articles = Article.all
+    articles = current_user.try(:admin?)? Article : Article.public_articles
+    @articles = articles.where(topic_id: params[:topic_id]).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /articles/1
@@ -70,6 +71,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:platform, :title, :content, :image, :abstract)
+      params.require(:article).permit(:platform, :title, :content, :image, :abstract, :status, :topic_id)
     end
 end

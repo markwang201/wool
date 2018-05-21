@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180517020427) do
+ActiveRecord::Schema.define(version: 20180519072258) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180517020427) do
     t.boolean "push_to_baidu", default: true
     t.string "topic"
     t.string "status"
+    t.bigint "topic_id"
+    t.index ["topic_id"], name: "index_articles_on_topic_id"
   end
 
   create_table "bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,6 +111,12 @@ ActiveRecord::Schema.define(version: 20180517020427) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "password"
@@ -133,6 +141,7 @@ ActiveRecord::Schema.define(version: 20180517020427) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "topics"
   add_foreign_key "bills", "channels"
   add_foreign_key "bills", "platforms"
   add_foreign_key "orders", "bills"

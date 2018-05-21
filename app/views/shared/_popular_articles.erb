@@ -1,0 +1,9 @@
+<div class="card" style="margin-top: 10px;">
+  <div class="card-header">
+    <div class="right-box-title_main">精品文章</div>
+    <a href="articles_list/1" target="_blank">MORE&gt;</a>
+  </div>
+  <ul class="list-group list-group-flush">
+    <%= render partial: 'shared/right_rails_article_item', collection: Article.classic_articles, as: 'article' %>
+  </ul>
+</div>

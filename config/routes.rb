@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :topics
   # class DomainConstraint
   #   def initialize(domain)
   #     @domains = domain
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
 
   #constraints DomainConstraint.new('ak.active.local:3002') do
   mount Ckeditor::Engine => '/ckeditor'
+
+  resources :topics do
+    resources :articles
+  end
   resources :articles
   resource :wechat, only: [:show, :create]
   devise_for :users
