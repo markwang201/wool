@@ -1,8 +1,7 @@
 <%
   crumbs = [{text: '主页', url: '/'}]
-  crumbs << {text: '文章列表', url: articles_path}
+  crumbs << {text: '文章列表', url: articles_list_path(@article.topic)}
   crumbs << {text: @article.title, url: articles_path(@article.topic)}
-  #crumbs << {text: @article.title, url: articles_list_path(@article.topic)}
   title @article.title
   description @article.abstract
 %>
