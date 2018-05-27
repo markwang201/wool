@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    articles = current_user.try(:admin?)? Article : Article.public_articles
+    articles =  Article.public_articles
     @articles = articles.where(topic_id: params[:topic_id]).paginate(:page => params[:page], :per_page => 10)
   end
 

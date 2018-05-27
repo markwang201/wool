@@ -3,16 +3,17 @@ class Article < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   belongs_to :topic
 
-  def self.public_articles
-    Article.where(status: '1').order(updated_at: :desc)
+  def self.public_articles(ids=[])
+    public_articles = Article.where(status: '1').order(updated_at: :desc)
+    ids.present? ? public_articles.where.not(id: ids) : public_articles
   end
 
   def self.latest_fanli
     public_articles.where(topic: '2').first(3)
   end
 
-  def self.related_articles(topic='')
-    public_articles.where(topic: topic).first(3)
+  def self.related_articles(topic='', ids=[])
+    public_articles(ids).where(topic: topic).first(3)
   end
 
   def self.topic_articles(topic='')

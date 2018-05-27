@@ -26,7 +26,7 @@
         <%= raw @article.content %>
       </div>
     </div>
-    <%= render :partial => 'shared/related_articles' , locals: { articles: Article.related_articles(@article.topic), topic: @article.topic } %>
+    <%= render :partial => 'shared/related_articles' , locals: { articles: Article.related_articles(@article.topic, @article.id), topic: @article.topic } %>
   </div>
   <div class="col-sm-3 col-12 right-rails-container" >
     <%= render :partial => 'shared/latest_fanli_with_image' %>
