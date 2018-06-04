@@ -18,7 +18,9 @@ class ArticlesController < ApplicationController
   def show
 
     respond_to do |format|
-      format.html.phone
+      format.html.phone do
+        render layout: false
+      end
       format.html
     end #
 
