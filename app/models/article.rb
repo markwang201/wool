@@ -9,7 +9,7 @@ class Article < ApplicationRecord
   end
 
   def self.latest_fanli
-    public_articles.where(topic: '2').first(3)
+    public_articles.where(topic: '5').first(3)
   end
 
   def self.related_articles(topic='', ids=[])
@@ -22,6 +22,6 @@ class Article < ApplicationRecord
 
   # topic 1
   def self.classic_articles
-    public_articles.where(topic: 1).first(3)
+    public_articles.where(topic: '5').first(3)
   end
 end
